@@ -18,8 +18,7 @@ library(ggplot2)
 library(paletteer)
 
 
-#setwd("D:/DOCUMENTOS/UNIVERSIDAD_DE_LIMA/IDIC/2021/humanitariaLogistics/asignacionLogisticaHumanitariaDemandaAplicacionEnLinea")
-setwd('D:/DOCUMENTOS/UNIVERSIDAD_DE_LIMA/IDIC/2021/humanitariaLogistics/powerBi/modeloReticulate')
+
 #demandaGrupo1 <- read_exce
 #cantidad_centros = 20
 demandaGrupo2 <- read_excel("demandaGrupoAsignacion3.xlsx",sheet = "Hoja1")
@@ -99,14 +98,6 @@ dc_cities_selected <- unique(customer_dc_alignment_df$DC_City)
 dataLocales2<-dataLocales %>% filter(dataLocales$Address%in%dc_cities_selected )
 
 ######################################
-use_virtualenv("optimization")
-source_python("D:/DOCUMENTOS/UNIVERSIDAD_DE_LIMA/IDIC/2021/humanitariaLogistics/powerBi/modeloReticulate/NcentrosNsectoresExportarPBI.py")
-#source_python("modeloInventarioCompartido.py")
-#crea_demanda(20L,4L)
-kitsNecesarios<-py$crea_demanda(20L,4L)
-
-#### este paso es clave para que aparezca en Power Bi
-datos<-as.data.frame(kitsNecesarios)
 
 
 
